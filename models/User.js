@@ -18,13 +18,13 @@ User.init(
     },
     name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     lastname: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
-    username_fk: {
+    username: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -44,7 +44,7 @@ User.init(
       },
     birthdate: {
       type: DataTypes.DATE,
-      allowNull: false,
+      allowNull: true,
       defaultValue: DataTypes.NOW,
     }
     },

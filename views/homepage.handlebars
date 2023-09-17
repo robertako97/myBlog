@@ -1,9 +1,25 @@
-{{#each posts as |post|}}
-    <div class="row align-center mb-5">
-        <div class="col-md-6">
-            <h1>Post</h1>
-            <h2>{{post.title}}</h2>
-            <p>{{post.post_content}}</p>
+<main>
+    <button class="btn btn-add" id="add-button">Add</button>
+
+    <!-- Form to Create a New Post -->
+    <form id="post-form" style="display: none;">
+        <label for="post-content">New Post Content:</label>
+        <textarea id="post-content" rows="4" cols="50"></textarea>
+        <button class="btn btn-save" type="submit">Save</button>
+    </form>
+
+    {{#each posts}}
+        <div class="post-container">
+            <div class="blog-post" id="post-{{@index}}">
+                <h1 class="post-title">Post</h1>
+                <h2 class="post-subtitle">{{this.title}}</h2>
+                <p class="post-content">{{this.post_content}}</p>
+            </div>
+            <!-- Buttons Section -->
+            <div class="buttons">
+                <button class="btn btn-save post-save-button">Save Post</button>
+                <button class="btn btn-delete post-delete-button">Delete Post</button>
+            </div>
         </div>
-    </div>
-{{/each}}
+    {{/each}}
+</main>

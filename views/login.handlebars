@@ -1,42 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Include your existing CSS files and other head content -->
+    <style>
+        /* Center the forms horizontally and vertically */
+        .row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Set the height to center vertically */
+        }
+
+        /* Style for login and signup forms */
+        .form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+            color: #000; /* Set text color to black */
+        }
+
+        /* Add hover effect to forms */
+        .form:hover {
+            transform: scale(1.02); /* Scale up on hover */
+        }
+
+        /* Style form labels */
+        .form label {
+            color: #000; /* Black text color */
+        }
+
+        /* Style form buttons */
+        .form button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s ease-in-out;
+        }
+
+        /* Add hover effect to buttons */
+        .form button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+            transform: scale(1.05); /* Slightly scale up on hover */
+        }
+
+        /* Add white color to h2 elements (titles) */
+        h2 {
+            color: #fff; /* White text color */
+        }
+
+        /* Set the width of form input boxes to 80% of the container */
+        .form-input {
+            width: 90%;
+        }
+    </style>
+</head>
+<body>
 <div class="row">
-  <div class="col-md-6">
-    <h2>Login</h2>
+    <div class="col-md-6">
+        <h2>Login</h2>
 
-    <form class="form login-form">
-      <div class="form-group">
-        <label for="email-login">email:</label>
-        <input class="form-input" type="text" id="email-login" />
-      </div>
-      <div class="form-group">
-        <label for="password-login">password:</label>
-        <input class="form-input" type="password" id="password-login" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">login</button>
-      </div>
-    </form>
-  </div>
-  <div class="col-md-6">
-    <h2>Signup</h2>
+        <form class="form login-form">
+            <div class="form-group">
+                <label for="email-login">Email:</label>
+                <input class="form-input" type="text" id="email-login" />
+            </div>
+            <div class="form-group">
+                <label for="password-login">Password:</label>
+                <input class="form-input" type="password" id="password-login" />
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Login</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <h2>Signup</h2>
 
-    <form class="form signup-form">
-      <div class="form-group">
-        <label for="name-signup">name:</label>
-        <input class="form-input" type="text" id="name-signup" />
-      </div>
-      <div class="form-group">
-        <label for="email-signup">email:</label>
-        <input class="form-input" type="text" id="email-signup" />
-      </div>
-      <div class="form-group">
-        <label for="password-signup">password:</label>
-        <input class="form-input" type="password" id="password-signup" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">signup</button>
-      </div>
-    </form>
-  </div>
+        <form class="form signup-form">
+            <div class="form-group">
+                <label for="name-signup">Name:</label>
+                <input class="form-input" type="text" id="name-signup" />
+            </div>
+            <div class="form-group">
+                <label for="email-signup">Email:</label>
+                <input class="form-input" type="text" id="email-signup" />
+            </div>
+            <div class="form-group">
+                <label for="password-signup">Password:</label>
+                <input class="form-input" type="password" id="password-signup" />
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Signup</button>
+            </div>
+        </form>
+    </div>
 </div>
 
 <script src="./js/login.js"></script>
+
+</body>
+</html>

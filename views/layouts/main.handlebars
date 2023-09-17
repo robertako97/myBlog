@@ -1,36 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User Registry</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>My Blog!</title>
+    <link rel="stylesheet" href="/css/style.css">
+
+    <style>
+        /* Center-align the title */
+        .space{
+        padding-bottom: 20px;
+        padding-top: 20px;
+
+        }
+
+        .centered-title {
+            text-align: center;
+            margin: 0; /* Remove any default margin */
+        }
+
+        /* Style the title */
+        .centered-title a {
+            text-decoration: none;
+            font-size: 36px; /* Adjust the font size */
+            color: #333; /* Dark gray color */
+            transition: color 0.3s; /* Smooth color transition on hover */
+        }
+
+        .centered-title a:hover {
+            color: #007bff; /* Blue color on hover */
+        }
+
+        /* Style the buttons */
+        .nav-buttons a {
+            text-decoration: none;
+            color: #007bff; /* Blue color */
+            font-size: 18px; /* Adjust the font size */
+            margin: 0 10px;
+            padding: 5px 10px; /* Add padding for better clickability */
+            border: 1px solid #007bff; /* Add a border */
+            border-radius: 3px; /* Rounded corners */
+            transition: background-color 0.3s, color 0.3s; /* Smooth color and background transitions on hover */
+        }
+
+        .nav-buttons a:hover {
+            background-color: #007bff; /* Blue background on hover */
+            color: #fff; /* White text on hover */
+        }
+        .button-like-link {
+            padding-left:5px;
+            background: none;
+            border: none;
+            color: #007bff; /* Blue color similar to the hyperlink */
+            text-decoration: underline; /* Underline text like a hyperlink */
+            cursor: pointer;
+            font-size: inherit; /* Inherit font size */
+            font-family: inherit; /* Inherit font family */
+            /* Add any other styles to match your hyperlink styling */
+        }
+
+        .button-like-link:hover {
+            text-decoration: none; /* Remove underline on hover if needed */
+            color: #0056b3; /* Change color on hover */
+        }
+    </style>
 
 </head>
 
 <body>
-  <header class="display-flex justify-space-between align-center p-2">
-    <h1>
-      User Registry
-    </h1>
-    <!-- Only display the logout button if the user is logged in -->
-    {{#if logged_in}}
-    <nav>
-      <button class="btn" id="logout">logout</button>
-    </nav>
-    {{/if}}
-  </header>
-  <main class="container container-fluid mt-5">
-    {{{ body }}}
-  </main>
-  <footer>
-      
-  </footer>
+<div class="flex-column justify-space-around">
+    <header class="display-flex justify-space-between align-center p-2">
+        <h1 class="centered-title"> <!-- Apply the centered-title class -->
+            <h1 class="centered-title space">My Blog!</h1.centered-title>
+            </h1>
+            <nav class="nav-buttons centered-title"> <!-- Apply the nav-buttons class -->
+                <!-- Conditionally render login or logout links -->
+                {{#if logged_in}}
+                    <a href="/">Home</a>
+                    <a href="/">Dashboard</a>
+                    <a href="/login">Login</a>
+                    <button class="button-like-link no-button" id="logout">logout</button>
 
-  <!-- Only include the logout script if the user is logged in -->
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
+                {{else}}
+                    <a href="/login">login</a>
+                {{/if}}
+            </nav>
+    </header>
+    <main class="container container-fluid mt-5">
+        <!-- Render the sub layout -->
+        {{{ body }}}
+    </main>
+    <footer>
+
+    </footer>
+</div>
+
+<!-- Render script for logged-in users only -->
+{{#if logged_in}}
+    <script src="/js/logout.js"></script>
+{{/if}}
 </body>
 
 </html>
+
+

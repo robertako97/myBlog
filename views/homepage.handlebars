@@ -1,25 +1,30 @@
 <main>
-    <button class="btn btn-add" id="add-button">Add</button>
+    <button class=" post-delete-button" id="add-button">iDea</button>
 
     <!-- Form to Create a New Post -->
-    <form id="post-form" style="display: none;">
-        <label for="post-content">New Post Content:</label>
-        <textarea id="post-content" rows="4" cols="50"></textarea>
-        <button class="btn btn-save" type="submit">Save</button>
+    <form class="form " id="post-form" action="/create-post" method="POST" style="display: none; width:80%; opacity: 80%; background: rgba(137,137,137,0.21);">
+        <div class="form-group">
+            <label style="color: white;">iDea</label>
+            <input class="form-input" type="text" id="post_title" style="width: 50%;" />
+        </div>
+
+        <div class="form-group">
+            <input class="form-input" type="text" id="post_content" style="width: 95%; height: 60px;"/>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit" id="newIdea" >Submit</button>
+        </div>
     </form>
 
     {{#each posts}}
-        <div class="post-container">
-            <div class="blog-post" id="post-{{@index}}">
-                <h1 class="post-title">Post</h1>
+        <div class="post-container" id="post-{{@index}}">
+
                 <h2 class="post-subtitle">{{this.title}}</h2>
-                <p class="post-content">{{this.post_content}}</p>
-            </div>
-            <!-- Buttons Section -->
-            <div class="buttons">
-                <button class="btn btn-save post-save-button">Save Post</button>
-                <button class="btn btn-delete post-delete-button">Delete Post</button>
-            </div>
+                <h4 class="post-content">{{this.post_content}}</h4>
+
+                <button class="buttons btn post-delete-button">Delete Post</button>
         </div>
     {{/each}}
 </main>
+
+

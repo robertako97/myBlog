@@ -42,11 +42,6 @@ User.init(
       validate: {
         len: [8],
       },
-    birthdate: {
-      type: DataTypes.DATE,
-      allowNull: true,
-      defaultValue: DataTypes.NOW,
-    }
     },
   },
   {

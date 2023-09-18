@@ -1,5 +1,5 @@
 /* Reset some default styles */
-body, h1, h2, p, label, input, button, textarea {
+body, h1, h2, p, label, input, textarea {
     margin: 0;
     padding: 0;
 }
@@ -60,8 +60,8 @@ label {
 }
 
 .btn {
-    padding: 10px 20px;
-    background-color: #007bff;
+    padding: 5px 20px;
+    background-color: darkblue;
     color: #fff;
     border: none;
     border-radius: 3px;
@@ -129,25 +129,48 @@ label {
 
 .post-title, .post-subtitle, .post-content {
     color: #fff; /* White font color for post titles, subtitles, and content */
+    flex-grow: 1;
 }
 
 .comments-title, .comment-content {
     color: #fff; /* White font color for comments titles and content */
 }
 
-.post-save-button, .post-delete-button {
-    background-color: #00acee; /* Twitter's blue color for post buttons */
-    color: #fff; /* White text for post buttons */
+.buttons {
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+    margin-top: 70px; /* Add some spacing if needed */
+    opacity: 30%;
+}
+.buttons:hover {
+    opacity: 80%;
+    transition: 1s;
+}
+
+.post-save-button,
+.post-delete-button {
+    background-color: black;
+    color: #fff;
     margin-right: 10px;
+    align-self: center; /* Center the button horizontally within the container */
+    margin-top: 10px; /* Add spacing from the content above */
 }
 
 /* Add more specific styles as needed */
 .post-container {
-    background-color: #333; /* Dark gray background for posts */
+    background-color: rgba(28, 28, 28, 0.43); /* Dark gray background for posts */
     padding: 15px;
     border-radius: 5px;
     margin-top: 15px;
-    height: 250px; /* Fixed height for all posts */
     overflow: hidden;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: start; /* Center content horizontally */
+    justify-content: space-between; /* Push content to the top and bottom */
+    height: 100%; /* Ensure the container takes up all available vertical space */
+
+
+
 }

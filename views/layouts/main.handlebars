@@ -64,21 +64,47 @@
             text-decoration: none; /* Remove underline on hover if needed */
             color: #0056b3; /* Change color on hover */
         }
+
+        .container {
+            overflow: hidden;
+        }
+
+        /* Image styles */
+        .container img {
+            max-width: 100%;
+            height: auto;
+            transition: opacity 1.3s ease-in-out;
+        }
+
+        /* Hover effect */
+        .container:hover img {
+            opacity: 0;
+            transform: scale(1.1);
+        }
+        .radius {
+            border-radius: 100px;
+        }
+
+
     </style>
 
 </head>
 
 <body>
 <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
+    <header class="display-flex justify-space-between align-center centered-title">
         <h1 class="centered-title"> <!-- Apply the centered-title class -->
-            <h1 class="centered-title space">My Blog!</h1.centered-title>
+            <h1 class="centered-title space">iDea</h1>
             </h1>
+            <span class="container" style="display: flex; justify-content: center; align-items: center; padding-bottom: 25px;">
+        <img class="radius" src="https://logodix.com/logo/1311419.jpg" alt="Image Description" width="100" height="100">
+    </a>
+</span>
             <nav class="nav-buttons centered-title"> <!-- Apply the nav-buttons class -->
                 <!-- Conditionally render login or logout links -->
                 {{#if logged_in}}
                     <a href="/">Home</a>
-                    <a href="/">Dashboard</a>
+                    <a href="/dashboard">Dashboard</a>
                     <a href="/login">Login</a>
                     <button class="button-like-link no-button" id="logout">logout</button>
 
@@ -97,8 +123,11 @@
 </div>
 
 <!-- Render script for logged-in users only -->
+
 {{#if logged_in}}
     <script src="/js/logout.js"></script>
+    <script src="/js/buttons.js"></script>
+
 {{/if}}
 </body>
 

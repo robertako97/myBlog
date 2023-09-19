@@ -10,21 +10,35 @@
 
         <div class="form-group">
             <input class="form-input" type="text" id="post_content" style="width: 95%; height: 60px;"/>
+
         </div>
         <div class="form-group">
+
+
             <button class="btn btn-primary" type="submit" id="newIdea" >Submit</button>
+
         </div>
+
+
     </form>
+    <button class="buttons btn post-delete-button" id="comments-button">Comments</button>
+    <div id="post-list"> <!-- Common ancestor element -->
 
     {{#each posts}}
-        <div class="post-container" id="post-{{@index}}">
-
-                <h2 class="post-subtitle">{{this.title}}</h2>
-                <h4 class="post-content">{{this.post_content}}</h4>
-
-                <button class="buttons btn post-delete-button">Delete Post</button>
+        <div class="post-container" data-id="{{this.id}}" id="post-{{@index}}">
+            <h2 class="post-subtitle">{{this.title}}</h2>
+            <h4 class="post-content">{{this.post_content}}</h4>
+            <div style="display: none; margin-bottom: 2px; background: #333333; width: 99%;" class="commentsID">
+                <h5 style="margin-left: 15px;" class="post-content">ADD COMMENT HERE</h5>
+            </div>
+            <div style="display: none; margin-bottom: 2px; background: #333333; width: 99%;" class="commentsID">
+                <h5 style="margin-left: 15px;" class="post-content">ADD COMMENT HERE</h5>
+            </div>
+            <button class="buttons btn post-delete-button" data-id="{{this.id}}">Delete Post</button>
         </div>
     {{/each}}
+    </div>
+
 </main>
 
 

@@ -137,10 +137,6 @@ label {
 }
 
 .buttons {
-    display: flex;
-    justify-content: center; /* Horizontal centering */
-    align-items: center; /* Vertical centering */
-    margin-top: 70px; /* Add some spacing if needed */
     opacity: 30%;
 }
 .buttons:hover {
@@ -155,6 +151,7 @@ label {
     margin-right: 10px;
     align-self: center; /* Center the button horizontally within the container */
     margin-top: 10px; /* Add spacing from the content above */
+    display: inline-block;
 }
 
 /* Add more specific styles as needed */
@@ -170,7 +167,9 @@ label {
     align-items: start; /* Center content horizontally */
     justify-content: space-between; /* Push content to the top and bottom */
     height: 100%; /* Ensure the container takes up all available vertical space */
+    border: solid rgba(255, 255, 255, 0.69) 1px;
 
 
 
 }
+

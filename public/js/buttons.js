@@ -42,28 +42,45 @@ document
     .querySelector('#post-form')
     .addEventListener('submit', postPost);
 
-const postDeleteButtons = document.querySelectorAll('.post-delete-button');
 
-postDeleteButtons.forEach((button) => {
-    button.addEventListener('click', async () => {
-        const postId = button.parentElement.id.split('-')[1];
+const delButtonHandler = async (event) => {
+    if (event.target.hasAttribute('data-id')) {
+        const id = event.target.getAttribute('data-id');
 
-        try {
-            const response = await fetch(`/delete-post/${postId}`, {
-                method: 'DELETE',
-            });
+        const response = await fetch(`/${id}`, {
+            method: 'DELETE',
+        });
 
-            if (response.ok) {
-                // Handle successful post deletion, e.g., update UI
-                // You may remove the deleted post container from the UI
-                document.getElementById(`post-${postId}`).remove();
+        if (response.ok) {
+            document.location.replace('/');
+        } else {
+            alert('Failed to delete post.');
+        }
+    }
+};
+
+document
+    .querySelector('#post-list')
+    .addEventListener('click', delButtonHandler);
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const addButton = document.getElementById('comments-button');
+    const comments = document.getElementsByClassName('commentsID');
+
+    addButton.addEventListener('click', function () {
+        // Toggle the visibility of each element in the collection
+        for (let i = 0; i < comments.length; i++) {
+            const comment = comments[i];
+            if (comment.style.display === 'none' || comment.style.display === '') {
+                comment.style.display = 'block';
             } else {
-                // Handle deletion error, e.g., display an error message
-                console.error('Error deleting the post');
+                comment.style.display = 'none';
             }
-        } catch (error) {
-            // Handle network errors
-            console.error('Network error:', error);
         }
     });
 });

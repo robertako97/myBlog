@@ -44,8 +44,10 @@ document
 
 
 const delButtonHandler = async (event) => {
-    if (event.target.hasAttribute('data-id')) {
-        const id = event.target.getAttribute('data-id');
+    const button = event.target.closest('.deleteB'); // Replace 'your-button-class' with your actual class name
+
+    if (button) {
+        const id = button.getAttribute('data-id');
 
         const response = await fetch(`/${id}`, {
             method: 'DELETE',
@@ -54,10 +56,12 @@ const delButtonHandler = async (event) => {
         if (response.ok) {
             document.location.replace('/');
         } else {
-            alert('Failed to delete post.');
         }
     }
 };
+
+document.addEventListener('click', delButtonHandler);
+
 
 document
     .querySelector('#post-list')
@@ -84,3 +88,28 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+
+const comment = async (event) => {
+    const button = event.target.closest('.commentB'); // Replace 'your-button-class' with your actual class name
+    const comments = document.querySelector('#commentID').value.trim();
+
+    if (button) {
+        if (button.classList.contains('commentB')) {
+            const post_id = button.getAttribute('data-id');
+            const response = await fetch('/create-comment', {
+                method: 'POST',
+                body: JSON.stringify({comments, post_id}),
+                headers: {'Content-Type': 'application/json'},
+            });
+
+            if (response.ok) {
+                document.location.replace('/');
+            } else {
+                alert('Error sharing your thought.');
+            }
+        }
+    }
+};
+
+document.addEventListener('click', comment);

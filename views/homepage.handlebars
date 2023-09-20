@@ -28,18 +28,33 @@
         <div class="post-container" data-id="{{this.id}}" id="post-{{@index}}">
             <h2 style=" opacity: 90%; margin-top:5px; margin-left: 40px;"  class="post-subtitle">{{this.title}}</h2>
             <h4 style=" opacity: 80%; margin-left: 40px;"class="post-content">{{this.post_content}}</h4>
-            <h5 style="align-self: end; opacity: 50%; margin-right: 40px; margin-bottom: -15px;" class="post-content">{{this.username_fk}}</h5>
-            <h5 style="align-self: end; opacity: 50%; margin-right: 40px; " class="post-content">{{this.date_created}}</h5>
+            <h5 style="align-self: end; opacity: 50%; margin-right: 40px; margin-bottom: -10px;" class="post-content">{{this.username_fk}}</h5>
+            <h5 style="align-self: end; opacity: 50%; margin-right: 40px; margin-bottom: 1px;" class="post-content">{{this.date_created}}</h5>
 
-            <div style="display: none; margin-bottom: 2px; background: #333333; width: 99%;" class="commentsID">
-                <h5 style="margin-left: 15px;" class="post-content">ADD COMMENT HERE</h5>
-            </div>
-            <div style="display: none; margin-bottom: 2px; background: #333333; width: 99%;" class="commentsID">
-                <h5 style="margin-left: 15px;" class="post-content">ADD COMMENT HERE</h5>
-            </div>
-            <button class="buttons btn post-delete-button" data-id="{{this.id}}">Delete Post</button>
+
+
+
+            <button class="buttons btn post-delete-button commentB"  data-id="{{this.id}}">Share your thoughts</button>
+
+            <input class="form-input" type="text" id="commentID" style="width: 80%;align-self: center;opacity: 50%;margin-top: 10px" />
+
+
+            <button class="buttons btn post-delete-button deleteB"  data-id="{{this.id}}">Delete Post</button>
+
+
+
+
+
         </div>
     {{/each}}
+
+        {{#each commentz}} <!-- Iterate through all comments -->
+            <h4 style="margin-left: 70px;" class="post-content">{{this.comments}} </h4>
+            <h5 style="text-align: end; opacity: 50%; margin-right: 40px; margin-bottom: -10px;" class="post-content">{{this.username_fk}}</h5>
+
+        {{/each}}
+
+
     </div>
 
 </main>

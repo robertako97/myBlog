@@ -15,6 +15,22 @@ Comments.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
+        username_fk: {
+            type: DataTypes.STRING, // Assuming username is of type STRING
+            allowNull: false,
+            references: {
+                model: 'user', // This should match the name of your User model
+                key: 'username', // This should match the name of the column you want to reference
+            },
+        post_id: {
+            type: DataTypes.INTEGER, // Assuming username is of type STRING
+            allowNull: false,
+            references: {
+                model: 'post', // This should match the name of your User model
+                key: 'id', // This should match the name of the column you want to reference
+            },
+        },
+        },
     },
     {
         sequelize,

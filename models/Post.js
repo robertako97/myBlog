@@ -24,7 +24,14 @@ Post.init(
       allowNull: true,
       defaultValue: DataTypes.NOW,
     },
-
+      username_fk: {
+          type: DataTypes.STRING, // Assuming username is of type STRING
+          allowNull: false,
+          references: {
+              model: 'user', // This should match the name of your User model
+              key: 'username', // This should match the name of the column you want to reference
+          },
+      },
   },
   {
     sequelize,

@@ -13,8 +13,9 @@ User.init(
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      primaryKey: true,
       autoIncrement: true,
+      primaryKey: true,
+
     },
     name: {
       type: DataTypes.STRING,
@@ -24,10 +25,12 @@ User.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
-    username: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
+      username: {
+          type: DataTypes.STRING,
+          allowNull: false,
+          unique: true,
+
+  },
     email: {
       type: DataTypes.STRING,
       allowNull: false,

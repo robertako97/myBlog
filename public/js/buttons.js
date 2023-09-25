@@ -90,26 +90,31 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-const comment = async (event) => {
-    const button = event.target.closest('.commentB'); // Replace 'your-button-class' with your actual class name
-    const comments = document.querySelector('#commentID').value.trim();
+const comment = async (event, post_id) => {
+    const commentsInput = document.querySelector(`#comment-input-${post_id}`);
+    const comments = commentsInput.value.trim();
 
-    if (button) {
-        if (button.classList.contains('commentB')) {
-            const post_id = button.getAttribute('data-id');
-            const response = await fetch('/create-comment', {
-                method: 'POST',
-                body: JSON.stringify({comments, post_id}),
-                headers: {'Content-Type': 'application/json'},
-            });
+    if (comments) {
+        const response = await fetch('/create-comment', {
+            method: 'POST',
+            body: JSON.stringify({ comments, post_id }),
+            headers: { 'Content-Type': 'application/json' },
+        });
 
-            if (response.ok) {
-                document.location.replace('/');
-            } else {
-                alert('Error sharing your thought.');
-            }
+        if (response.ok) {
+            document.location.replace('/');
+        } else {
+            alert('Error sharing your thought.');
         }
     }
 };
-
 document.addEventListener('click', comment);
+
+document.addEventListener('click', (event) => {
+    const button = event.target.closest('.comment-button');
+
+    if (button) {
+        const post_id = button.getAttribute('data-id');
+        comment(event, post_id);
+    }
+});

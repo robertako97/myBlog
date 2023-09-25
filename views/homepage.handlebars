@@ -24,20 +24,29 @@
     <button class="buttons btn post-delete-button" id="comments-button">Comments</button>
     <div id="post-list"> <!-- Common ancestor element -->
 
-    {{#each posts}}
-        <div class="post-container" data-id="{{this.id}}" id="post-{{@index}}">
-            <h2 style=" opacity: 90%; margin-top:5px; margin-left: 40px;"  class="post-subtitle">{{this.title}}</h2>
-            <h4 style=" opacity: 80%; margin-left: 40px;"class="post-content">{{this.post_content}}</h4>
-            <h5 style="align-self: end; opacity: 50%; margin-right: 40px; margin-bottom: -10px;" class="post-content">{{this.username_fk}}</h5>
-            <h5 style="align-self: end; opacity: 50%; margin-right: 40px; margin-bottom: 1px;" class="post-content">{{this.date_created}}</h5>
+        {{#each posts}}
+            <div class="post-container" data-id="{{this.id}}" id="post-{{@index}}">
+                <h2 style="opacity: 90%; margin-top: 5px; margin-left: 40px;" class="post-subtitle">{{this.title}}</h2>
+                <h4 style="opacity: 80%; margin-left: 40px;" class="post-content">{{this.post_content}}</h4>
+                <h5 style="align-self: end; opacity: 50%; margin-right: 40px; margin-bottom: -10px;" class="post-content">{{this.username_fk}}</h5>
+                <h5 style="align-self: end; opacity: 50%; margin-right: 40px; margin-bottom: 1px;" class="post-content">{{this.date_created}}</h5>
+
+                {{#if this.comments}} <!-- Check if comments exist for this post -->
+                    {{#each this.comments}}
+
+                        <div style="margin-bottom: 2px; margin-top: 2px; background: rgba(51, 51, 51, 0.44); width: 99%;" class="commentsID">
+                            <h4 style="margin-left: 70px;" class="post-content">{{this.comments}}</h4>
+                            <h5 style="text-align: end; opacity: 50%; margin-right: 40px;" class="post-content">{{this.username_fk}}</h5>
+
+                        </div>
+                    {{/each}}
+                {{/if}}
+            </div>
 
 
 
-
-            <button class="buttons btn post-delete-button commentB"  data-id="{{this.id}}">Share your thoughts</button>
-
-            <input class="form-input" type="text" id="commentID" style="width: 80%;align-self: center;opacity: 50%;margin-top: 10px" />
-
+            <input type="text" id="comment-input-{{this.id}}" class="comment-input" style="opacity: 50%;" />
+            <button class="comment-button" data-id="{{this.id}}" style="opacity: 50%;">Share Thoughts</button>
 
             <button class="buttons btn post-delete-button deleteB"  data-id="{{this.id}}">Delete Post</button>
 
@@ -48,11 +57,7 @@
         </div>
     {{/each}}
 
-        {{#each commentz}} <!-- Iterate through all comments -->
-            <h4 style="margin-left: 70px;" class="post-content">{{this.comments}} </h4>
-            <h5 style="text-align: end; opacity: 50%; margin-right: 40px; margin-bottom: -10px;" class="post-content">{{this.username_fk}}</h5>
 
-        {{/each}}
 
 
     </div>

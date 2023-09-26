@@ -1,7 +1,5 @@
 package-lock.json
 package.json
 seeders
-config
 db
-controllers
 node_modules

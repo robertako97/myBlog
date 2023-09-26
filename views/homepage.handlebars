@@ -22,9 +22,11 @@
 
     </form>
     <button class="buttons btn post-delete-button" id="comments-button">Comments</button>
-    <div id="post-list"> <!-- Common ancestor element -->
+    {{#each posts}}
 
-        {{#each posts}}
+        <div  id="post-list"> <!-- Common ancestor element -->
+
+
             <div class="post-container" data-id="{{this.id}}" id="post-{{@index}}">
                 <h2 style="opacity: 90%; margin-top: 5px; margin-left: 40px;" class="post-subtitle">{{this.title}}</h2>
                 <h4 style="opacity: 80%; margin-left: 40px;" class="post-content">{{this.post_content}}</h4>
@@ -48,19 +50,17 @@
             <input type="text" id="comment-input-{{this.id}}" class="comment-input" style="opacity: 50%;" />
             <button class="comment-button" data-id="{{this.id}}" style="opacity: 50%;">Share Thoughts</button>
 
-            <button class="buttons btn post-delete-button deleteB"  data-id="{{this.id}}">Delete Post</button>
-
-
-
-
-
+            {{#eq this.username_fk ../username}}
+                <button class="buttons btn post-delete-button deleteB" data-id="{{this.id}}">Delete Post</button>
+            {{else}}
+                Not your iDea.
+            {{/eq}}
         </div>
+
+
+
+
     {{/each}}
-
-
-
-
-    </div>
 
 </main>
 

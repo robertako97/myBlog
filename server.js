@@ -38,4 +38,3 @@ app.use(routes);
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log("Now listening"));
 });
-//Debugging Heroku - push to heroku and then run heroku logs --tail to see what is going on with the server
